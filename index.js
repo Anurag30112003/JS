@@ -113,3 +113,81 @@
 //       break;   
 
 //    }
+//  function addNum(num1 , num2){
+//     console.log(num1+num2)
+//  }
+
+//  addNum(5,9)
+
+// const addNum = ()=>{
+//     return 'hello'   
+// } 
+// console.log(addNum())
+
+// let num = 5;
+// const hello = (num) =>{
+//     return `hello${num}`
+// }
+
+// console.log(hello(num))
+
+
+// function Person (firstName,lastName,dob){
+
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.dob = dob
+// }
+
+// const person1 = new Person('John','Smith','1990');
+// console.log(person1.firstName)
+
+// const head = document.querySelector('.head');
+
+// const express = require('express');
+
+// const app = express()
+
+// app.get('/',(req,res)=>{
+//     res.json({'message':'Hello World'})
+// })
+
+// app.listen(5000)
+
+// // const items = document.querySelectorAll('.item');
+// const items = document.querySelector('.items');
+
+// // items.forEach((item) => {
+// //     console.log(item.textContent)    
+// // });
+
+// // items.remove();
+// // items.lastElementChild.remove(); 
+// items.firstElementChild.textContent = 'Vitalik';
+// items.children[1].innerText ='Zuck';
+// items.lastElementChild.innerHTML ='<h1> Harry</h1>';
+
+const myForm = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const msg = document.querySelector('.msg');
+const userList = document.querySelector('#users');
+
+myForm.addEventListener('submit', onSubmit);
+
+
+function onSubmit(e){
+    e.preventDefault();
+    if(nameInput.value === '' || emailInput.value === ''){
+        msg.classList.add('error');
+        msg.innerHTML ='Please Enter all Fields'
+        setTimeout(() => msg.remove(),3000);
+    } else{
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`))
+        userList.appendChild(li);
+        nameInput.value = '';
+        emailInput.value ='';    
+    };
+
+}
